@@ -3,9 +3,8 @@ from collections import defaultdict
 def main():
 	IndexEntries = defaultdict(list)
 
-	fileName = raw_input("What file would you like to indexify?")
-
 	#	Read in the source reverse index and parse it into IndexEntries
+	fileName = raw_input("What file would you like to indexify?")
 	try:
 		with open(fileName,"r") as fileToIndex:
 			parseFile(fileToIndex,IndexEntries)
@@ -14,12 +13,11 @@ def main():
 
 	#	Process IndexEntries and write it to a destination index file
 	fileName = raw_input("What file would you like to write the index to?")
-
 	try:
 		with open(fileName,"w") as fileToWriteIndexTo:
 			generateIndexForDict(IndexEntries,fileToWriteIndexTo)
 	except IOError:
-		print "Could not write file."
+		print "Could not write file.\r"
 
 def parseFile(fileToParse,indexDict):
 	#	Iterate through each line of the file to process into the dict
