@@ -15,7 +15,7 @@ def main():
 	fileName = raw_input("What file would you like to write the index to?")
 	try:
 		with open(fileName,"w") as fileToWriteIndexTo:
-			generateIndexForDict(IndexEntries,fileToWriteIndexTo)
+			generateCSVForDict(IndexEntries,fileToWriteIndexTo)
 	except IOError:
 		print "Could not write file.\r"
 
@@ -56,6 +56,12 @@ def generateIndexForDict(dictToParse,fileToWriteIndexTo):
 		pageString = ", ".join(pages)
 		stringToWrite = ""
 		fileToWriteIndexTo.write("%-40s %40s\n" % (term,pageString))
+
+def generateCSVForDict(dictToparse,fileToWriteIndexTo):
+	for term,pages in sorted(dictToparse.items()):
+		pageString = ", ".join(pages)
+		stringToWrite = term + "|" + pageString + "\n"
+		fileToWriteIndexTo.write(stringToWrite)
 
 if __name__ == '__main__':
 	main()
