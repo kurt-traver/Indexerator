@@ -5,9 +5,7 @@
 # - Option to output as CSV
 # - Improved documentation
 
-# Required format:
-# 
-# Example:
+# Required format Example:
 #
 # Book  1
 # 15  dns,bind
