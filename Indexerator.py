@@ -60,7 +60,8 @@ def generateIndexForDict(dictToParse,fileToWriteIndexTo):
 def generateCSVForDict(dictToparse,fileToWriteIndexTo):
 	for term,pages in sorted(dictToparse.items()):
 		pageString = ", ".join(pages)
-		stringToWrite = term + "|" + pageString + "\n"
+		pageString = "\"" + pageString + "\""
+		stringToWrite = term + "," + pageString + "\n"
 		fileToWriteIndexTo.write(stringToWrite)
 
 if __name__ == '__main__':
